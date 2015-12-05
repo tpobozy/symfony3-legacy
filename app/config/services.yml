@@ -1,0 +1,21 @@
+
+parameters:
+    app.doctrine.dbal: Doctrine\DBAL\Configuration
+    doctrine_dbal:
+        driver:   "%database_driver%"
+        host:     "%database_host%"
+        port:     "%database_port%"
+        dbname:   "%database_name%"
+        user:     "%database_user%"
+        password: "%database_password%"
+
+services:
+
+    app.doctrine.dbal:
+        class: Doctrine\DBAL\Configuration
+
+    app.doctrine:
+        class:     Doctrine\DBAL\DriverManager
+        factory_class:  Doctrine\DBAL\DriverManager
+        factory_method: getConnection
+        arguments: ["%doctrine_dbal%", "@app.doctrine.dbal"]

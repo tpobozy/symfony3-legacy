@@ -1,0 +1,10 @@
+
+homepage:
+  path: /index/
+  defaults:
+    _controller: \App\Controller\HomeController::indexAction
+
+homepage_container:
+  path: /index/home/container
+  defaults:
+    _controller: \App\Controller\HomeController::containerAction
